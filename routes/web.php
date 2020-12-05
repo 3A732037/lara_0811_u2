@@ -22,3 +22,6 @@ Route::get('/',function(){
 Route::get('/',function(){
     returnredirect('welcome');
 });
+Route::get('hello/{name?}',function($name='Everybody'){
+    return'Hello,'.$name;
+});
