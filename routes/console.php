@@ -17,3 +17,21 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+Route::get('/',function(){
+    returnview('welcome');
+});
+Route::get('/',function(){
+    returnredirect('welcome');
+});
+Route::get('say/{name?}',['as'=>'hello.index',function($name=
+                                                       'Everybody'){
+    return'Hello,'.$name;
+}]);
+Route::get('dashboard',function(){
+    return'dashboard';
+});
+Route::group(['prefix'=>'admin'],function(){
+    Route::get('dashboard',function(){
+        return'admindashboard';
+    });
+});

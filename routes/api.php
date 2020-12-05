@@ -17,3 +17,21 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/',function(){
+    returnview('welcome');
+});
+Route::get('/',function(){
+    returnredirect('welcome');
+});
+Route::get('say/{name?}',['as'=>'hello.index',function($name=
+                                                       'Everybody'){
+    return'Hello,'.$name;
+}]);
+Route::get('dashboard',function(){
+    return'dashboard';
+});
+Route::group(['prefix'=>'admin'],function(){
+    Route::get('dashboard',function(){
+        return'admindashboard';
+    });
+});
